@@ -2,15 +2,15 @@ import { IPattern } from '../../../interfaces/IPattern';
 
 export default class Adapter implements IPattern {
     public main(): void {
-        this.runClient(new Client());
-        this.runClient(new LegacyClientAdapter(new LegacyClient()));
+        this._runClient(new Client());
+        this._runClient(new LegacyClientAdapter(new LegacyClient()));
     }
 
     // The client code works with a "Client" interface.
     // The adapter will extend the "Client" and utilize a 3rd party service.
     // The adapter is used when this "Client" interface cannot be modified but
     // we need to somehow integrate some other code/serivce.
-    private runClient(client: Client): void {
+    private _runClient(client: Client): void {
         console.log('Data: ', client.getData());
     }
 }
