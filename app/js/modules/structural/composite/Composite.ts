@@ -6,6 +6,7 @@ export default class Composite implements IPattern {
     public main(): void {
         const mainBox = new Box();
         const headphonesBox = new Box();
+
         const glasses = new Glasses();
         const charger = new Charger();
         const pen = new Pen();
@@ -25,14 +26,13 @@ export default class Composite implements IPattern {
          *
          */
 
-        // TODO: ADD COMMENTS AND FILL IN THE EVERNOTE CHAP COMPOSITE
-
-        // Total price gets calculated recursively thanks to the composite structure.
+        // The sum is calculated recursively thanks to the composite structure.
         const totalPrice = mainBox.getPrice();
         console.log('Total price: ', totalPrice);
     }
 }
 
+// The abstract class for actual composites and leaf objects to extend.
 abstract class AComposite {
     protected _parent!: AComposite | null;
 
@@ -44,11 +44,13 @@ abstract class AComposite {
         this._parent = parent;
     }
 
-    // These methods are empty because leaf components shouldn't have children.
-    // Actual composites will implement those.
+    // These methods are empty because leaf objects shouldn't have children.
+    // Actual composites will implement these.
     public add(child: AComposite): void {}
     public remove(child: AComposite): void {}
 
+    // "true" = has children, "false" = no children.
+    // Actual composites will overwrite this method to return true.
     public isComposite(): boolean {
         return false;
     }
@@ -56,7 +58,9 @@ abstract class AComposite {
     public abstract getPrice(): number;
 }
 
+// An actual composite which will have chidlren.
 class Box extends AComposite {
+    // Actual composites keep track of children.
     private _children: AComposite[] = [];
 
     public add(child: AComposite): void {
@@ -78,24 +82,28 @@ class Box extends AComposite {
     }
 }
 
+// A leaf object.
 class Glasses extends AComposite {
     public getPrice(): number {
         return Price.GLASSES;
     }
 }
 
+// A leaf object.
 class Charger extends AComposite {
     public getPrice(): number {
         return Price.CHARGER;
     }
 }
 
+// A leaf object.
 class Pen extends AComposite {
     public getPrice(): number {
         return Price.PEN;
     }
 }
 
+// A leaf object.
 class Headphones extends AComposite {
     public getPrice(): number {
         return Price.HEADPHONES;
