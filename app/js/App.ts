@@ -15,19 +15,19 @@ import Proxy from './modules/structural/proxy/Proxy';
 console.clear();
 
 // Creational patterns
-runPattern('Factory Method', new FactoryMethod());
-runPattern('Abstract Factory', new AbstractFactory('mac'));
-runPattern('Builder', new Builder());
-runPattern('Prototype', new Prototype());
-runPattern('Singleton', new Singleton());
+// runPattern('Factory Method', new FactoryMethod());
+// runPattern('Abstract Factory', new AbstractFactory('mac'));
+// runPattern('Builder', new Builder());
+// runPattern('Prototype', new Prototype());
+// runPattern('Singleton', new Singleton());
 
 // Structural patterns
-runPattern('Adapter', new Adapter());
-runPattern('Bridge', new Bridge());
+// runPattern('Adapter', new Adapter());
+// runPattern('Bridge', new Bridge());
 runPattern('Composite', new Composite());
-runPattern('Decorator', new Decorator());
-runPattern('Facade', new Facade());
-runPattern('Flyweight', new Flyweight());
-runPattern('Proxy', new Proxy());
+// runPattern('Decorator', new Decorator());
+// runPattern('Facade', new Facade());
+// runPattern('Flyweight', new Flyweight());
+// runPattern('Proxy', new Proxy());
 
 // Behavioral patterns
