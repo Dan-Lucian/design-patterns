@@ -1,0 +1,13 @@
+# Design patters
+
+Holds examples of design patterns using typescript.
+
+## Table of Contents
+
+-   [Installation](#installation)
+
+## Installation
+
+1. nvm use
+2. npm ci
+3. npm start / npm run build
